@@ -9,45 +9,39 @@ driver.get('https://oscar.gatech.edu/pls/bprod/wwsktrna.P_find_location')
 # school in US
 driver.find_element_by_xpath("//input[@value='Yes']").click()
 
-# what state
-
-
-
-# what school
-
+# goes through all states
 for count_state in range(1, len(driver.find_elements_by_xpath('//option'))):
     state = driver.find_element_by_xpath('//option[' + str(count_state) + ']')
     state.click()
     driver.find_element_by_xpath('//input[@value="Get State"]').click()
+    time.sleep(3)
+
+    # goes through all schools
     for count_school in range(1, len(driver.find_elements_by_xpath('//option'))):
         school = driver.find_element_by_xpath('//option[' + str(count_school) + ']')
         school.click()
         driver.find_element_by_xpath('//input[@value="Get School"]').click()
+        time.sleep(3)
 
-        # subject, level, term
-        try: 
-            subject = driver.find_element_by_xpath('//option[@value="CS"]')
+        
+        # goes through all subjects
+        for count_subject in range(1, len(driver.find_elements_by_xpath('//option'))):
+            subject = driver.find_element_by_xpath('//option[' + str(count_subject) + ']')
             subject.click()
             driver.find_element_by_xpath('//option[@value="US"]').click()
             driver.find_element_by_xpath('//option[@value="202108"]').click()
             driver.find_element_by_xpath('//input[@value="Get Courses"]').click()
-        except:
-            # other_subjects = open("other_subjects.txt", "a")
-            # other_subjects.write(school.text)
-            # other_subjects.close()
-            print(school)
-            
-        finally:
-            driver.find_element_by_xpath('//input[@value="Search Another School"]').click()
-            time.sleep(1)
-      
-        # data file
-        # data = open("data.txt", "a")
-        # data.write(driver.find_element_by_class_name('datadisplaytable').text)
-        # data.close()
+            time.sleep(3)
 
-        # search another school
-        
+
+            try:
+                driver.find_element_by_xpath('//input[@value="Search Another Subject/Level/Term"]').click()
+                time.sleep(3)
+            except:
+                driver.find_element_by_xpath('//input[@value="Search Another School"]').click()
+                time.sleep(3)
+                break
+     
     driver.find_element_by_xpath('//input[@value="Search Another State"]').click()
 
 
