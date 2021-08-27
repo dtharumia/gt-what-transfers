@@ -1,9 +1,14 @@
 from selenium import webdriver
-import csv
+import numpy as np
+import pandas as pd
 import time
 
 DRIVER_PATH = './chromedriver'
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
+
+df = pd.DataFrame(columns=['School', 'T_class',
+                  'T_title', 'GT_class', 'GT_title'])
+
 driver.get('https://oscar.gatech.edu/pls/bprod/wwsktrna.P_find_location')
 
 # school in US
@@ -36,6 +41,8 @@ for count_state in range(1, len(driver.find_elements_by_xpath('//option')) + 1):
             time.sleep(3)
 
             try:
+                df.loc[(len(df.index))] = [school.text, 0, 0, 0, 0]
+                print(df)
                 driver.find_element_by_xpath(
                     '//input[@value="Search Another Subject/Level/Term"]').click()
                 time.sleep(3)
