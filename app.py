@@ -25,20 +25,29 @@ for count_state in range(1, len(driver.find_elements_by_xpath('//option'))):
         driver.find_element_by_xpath('//input[@value="Get School"]').click()
 
         # subject, level, term
-        subject = driver.find_element_by_xpath('//option[2]')  # change manual
-        subject.click()
-        driver.find_element_by_xpath('//option[@value="US"]').click()
-        driver.find_element_by_xpath('//option[@value="202108"]').click()
-        driver.find_element_by_xpath('//input[@value="Get Courses"]').click()
-
+        try: 
+            subject = driver.find_element_by_xpath('//option[@value="CS"]')
+            subject.click()
+            driver.find_element_by_xpath('//option[@value="US"]').click()
+            driver.find_element_by_xpath('//option[@value="202108"]').click()
+            driver.find_element_by_xpath('//input[@value="Get Courses"]').click()
+        except:
+            # other_subjects = open("other_subjects.txt", "a")
+            # other_subjects.write(school.text)
+            # other_subjects.close()
+            print(school)
+            
+        finally:
+            driver.find_element_by_xpath('//input[@value="Search Another School"]').click()
+            time.sleep(1)
+      
         # data file
         # data = open("data.txt", "a")
         # data.write(driver.find_element_by_class_name('datadisplaytable').text)
         # data.close()
 
         # search another school
-        driver.find_element_by_xpath('//input[@value="Search Another School"]').click()
-        time.sleep(3)
+        
     driver.find_element_by_xpath('//input[@value="Search Another State"]').click()
 
 
