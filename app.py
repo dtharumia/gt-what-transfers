@@ -61,21 +61,30 @@ for count_state in range(1, len(driver.find_elements_by_xpath('//option')) + 1):
             try:
                 # df.loc[(len(df.index))] = [school_name, 0, 0, 0, 0]
                 # print(df)
-                start_row = driver.find_element_by_xpath(
-                    '//table[@class="datadisplaytable"]//tr[3]')
+                for row in range(3, len(driver.find_elements_by_xpath('//table[@class="datadisplaytable"]//tr')) + 1):
+                    t_class = driver.find_element_by_xpath('//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[1]').text
+                    t_title = driver.find_element_by_xpath('//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[2]').text
+                    gt_class = driver.find_element_by_xpath('//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[8]').text
+                    gt_title = driver.find_element_by_xpath('//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[9]').text
+                    df.loc[(len(df.index))] = [school_name, t_class, t_title, gt_class, gt_title]
+                    print(df)
+
+                # start_row = driver.find_element_by_xpath(
+                #     '//table[@class="datadisplaytable"]//tr[3]')
                 # print(start_table.text)
                 # start_row = driver.find_elements_by_xpath('//')
-                print(start_row.text)
-                file1 = open("data.txt", "a")  # append mode
-                file1.write(start_row.text)
-                file1.close()
+                # print(start_row.text)
+                # file1 = open("data.txt", "a")  # append mode
+                # file1.write(start_row.text)
+                # file1.close()
                 # for count_course in range(3, len(start_table.find_elements_by_xpath('//tr')) + 1):
                 #     course = start_table.find_element_by_xpath(
                 #         '//tr[' + str(count_course) + ']')
                 #     print(course.text)
+                time.sleep(3)
                 driver.find_element_by_xpath(
                     '//input[@value="Search Another Subject/Level/Term"]').click()
-                time.sleep(3)
+                
             except:
                 driver.find_element_by_xpath(
                     '//input[@value="Search Another School"]').click()
