@@ -46,12 +46,8 @@ for count_state in range(
             subject = driver.find_element_by_xpath(
                 '//select[@name="sel_subj"]//option[' + str(count_subject) + ']')
             subject.click()
-            try:
-                driver.find_element_by_xpath('//option[@value="US"]').click()
-                driver.find_element_by_xpath(
-                    '//option[@value="202108"]').click()
-            except:
-                continue
+            driver.find_element_by_xpath('//select[@name="levl_in"]//option[@value="US"]').click()
+            driver.find_element_by_xpath('//option[@value="202108"]').click()
             driver.find_element_by_xpath(
                 '//input[@value="Get Courses"]').click()
 
@@ -80,6 +76,7 @@ for count_state in range(
                 finally:
                     df.to_csv('data.csv')
                     print(df)
+            time.sleep(1)
             driver.find_element_by_xpath(
                 '//input[@value="Search Another Subject/Level/Term"]').click()
         driver.find_element_by_xpath(
