@@ -1,0 +1,19 @@
+  ART  101 Transfer Course
+Undergraduate
+  C
+=>
+  HUM  1XXX Humanities Elective
+2.0
+   BIO  101 Transfer Course
+Undergraduate
+  C
+=>
+  BIOL  1XXX Biology Elective (Non-Lab Sci)
+3.0
+   CE  101 Transfer Course
+Undergraduate
+  C
+=>
+  FREE  1XXX Free Elective
+3.0
+ 
