@@ -1,8 +1,50 @@
-,school_name,t_class,t_title,t_level,t_mingrade,gt_class,gt_title,gt_ch
-0,Univ Alabama Tuscaloosa*,AC  210,Introduction to Accounting,Undergraduate,C,ACCT  2101,Accounting I,3.0
-1,Univ Alabama Tuscaloosa*,0,0,0,0,0,0,0
-2,Univ Alabama Tuscaloosa*,AEM  201,Statics,Undergraduate,C,COE  2001,Statics,2.0
-3,Univ Alabama Tuscaloosa*,0,0,0,0,0,0,0
-4,Univ Alabama Tuscaloosa*,ANT  100,Intro to Anthropology,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
-5,Univ Alabama Tuscaloosa*,ANT  102,Intro to Cultural Anthropology,Undergraduate,C,HUM  1XXX,Humanities Elective,3.0
-6,Univ Alabama Tuscaloosa*,ARH  254,Survey of Art III: Asian Art,Undergraduate,C,HUM  2XXX,Humanities Elective,3.0
+,state_entry,term,school_name,t_class,t_title,t_level,t_mingrade,gt_class,gt_title,gt_ch
+0,Colorado,Fall 2021,Otero Junior College*,MAT  123,Transfer Course,Undergraduate,C,MATH  17X1,Transfer Finite Math,3.0
+1,Colorado,Fall 2021,Otero Junior College*,MAT  125,Transfer Course,Undergraduate,C,MATH  1712,Survey of Calculus,4.0
+2,Colorado,Fall 2021,Pikes Peak Cmty College,CSC  160,Computer Sci I: C++,Undergraduate,C,CS  1301,Intro to Computing,3.0
+3,Colorado,Fall 2021,Pikes Peak Cmty College,0,0,0,0,0,0,0
+4,Colorado,Fall 2021,Pikes Peak Cmty College,ECO  201,Principles of Macroeconomics,Undergraduate,C,ECON  2105,Prin of Macroeconomics,3.0
+5,Colorado,Fall 2021,Pikes Peak Cmty College,ECO  202,Principles of Microeconomics,Undergraduate,C,ECON  2106,Prin of Microeconomics,3.0
+6,Colorado,Fall 2021,Pikes Peak Cmty College,ENG  121,English Composition I,Undergraduate,C,ENGL  1101,English Composition I,3.0
+7,Colorado,Fall 2021,Pikes Peak Cmty College,ENG  122,English Composition II,Undergraduate,C,ENGL  1102,English Composition II,3.0
+8,Colorado,Fall 2021,Pikes Peak Cmty College,ENG  131,Technical Writing I,Undergraduate,C,LMC  3403,Tech Communication,3.0
+9,Colorado,Fall 2021,Pikes Peak Cmty College,GEO  112,Physical Geography,Undergraduate,C,EAS  1XXX,Earth&Atmos Sci Elective,4.0
+10,Colorado,Fall 2021,Pikes Peak Cmty College,HIS  101,Western Civ: Antiquity-1650,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
+11,Colorado,Fall 2021,Pikes Peak Cmty College,HIS  102,Western Civ: 1650 to Present,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
+12,Colorado,Fall 2021,Pikes Peak Cmty College,HIS  201,United States History I,Undergraduate,C,HIST  2111,United States to 1877,3.0
+13,Colorado,Fall 2021,Pikes Peak Cmty College,HIS  202,United States History II,Undergraduate,C,HIST  2112,United States since 1877,3.0
+14,Colorado,Fall 2021,Pikes Peak Cmty College,INTD  1115,Creating Academic Success,Undergraduate,C,ET  NOGT,No Georgia Tech Credit Awarded,0.0
+15,Colorado,Fall 2021,Pikes Peak Cmty College,MAT  215,Discrete Mathematics,Undergraduate,C,CS  2050,Intro Discrete Math CS,3.0
+16,Colorado,Fall 2021,Pikes Peak Cmty College,0,0,0,0,0,0,0
+17,Colorado,Fall 2021,Pikes Peak Cmty College,MAT  255,Linear Algebra,Undergraduate,C,MATH  1522,Linear Algebra for Calc,2.0
+18,Colorado,Fall 2021,Pikes Peak Cmty College,0,0,0,0,0,0,0
+19,Colorado,Fall 2021,Pikes Peak Cmty College,MAT  265,Differential Equations,Undergraduate,C,MATH  24X3,Transfer Diff Equations,3.0
+20,Colorado,Fall 2021,Pikes Peak Cmty College,PED  145,Pilates,Undergraduate,C,HPS  1XXX,Health&Perform Sci Elect,1.0
+21,Colorado,Fall 2021,Pikes Peak Cmty College,PHI  114,Comparative Religion,Undergraduate,C,HUM  1XXX,Humanities Elective,3.0
+22,Colorado,Fall 2021,Pikes Peak Cmty College,PHY  105,General Physics I,Undergraduate,C,PHYS  2211,Intro Physics I,4.0
+23,Colorado,Fall 2021,Pikes Peak Cmty College,PHY  212,Physics: Calc-Based II w/Lab,Undergraduate,C,ET  DEPT,Approp. Dept. Must Evaluate,0.0
+24,Colorado,Fall 2021,Pikes Peak Cmty College,POS  105,Intro to Political Science,Undergraduate,C,POL  1101,Government of the U.S.,3.0
+25,Colorado,Fall 2021,Pikes Peak Cmty College,POS  111,American Government,Undergraduate,C,POL  1101,Government of the U.S.,3.0
+26,Colorado,Fall 2021,Pikes Peak Cmty College,SOC  101,Introduction to Sociology,Undergraduate,C,SOC  1101,Intro to Sociology,3.0
+27,Colorado,Fall 2021,Pikes Peak Cmty College,SPE  115,Public Speaking,Undergraduate,C,FREE  1XXX,Free Elective,3.0
+28,Colorado,Fall 2021,Red Rocks Community College,ART  110,Transfer Course,Undergraduate,C,HUM  1XXX,Humanities Elective,3.0
+29,Colorado,Fall 2021,Red Rocks Community College,AST  101,Transfer Course,Undergraduate,C,PHYS  2021,Solar System,3.0
+30,Colorado,Fall 2021,Red Rocks Community College,0,0,0,0,0,0,0
+31,Colorado,Fall 2021,Red Rocks Community College,BUS  115,Transfer Course,Undergraduate,C,FREE  1XXX,Free Elective,3.0
+32,Colorado,Fall 2021,Red Rocks Community College,CHE  101,Transfer Course,Undergraduate,C,ET  LAB,Credit Awarded w/Lab Section,0.0
+33,Colorado,Fall 2021,Red Rocks Community College,CHE  101L,Transfer Course,Undergraduate,C,ET  NOGT,No Georgia Tech Credit Awarded,0.0
+34,Colorado,Fall 2021,Red Rocks Community College,CHE  111,Transfer Course,Undergraduate,C,ET  LAB,Credit Awarded w/Lab Section,0.0
+35,Colorado,Fall 2021,Red Rocks Community College,CHE  111L,Transfer Course,Undergraduate,C,CHEM  1XXX,Chemistry Elective,4.0
+36,Colorado,Fall 2021,Red Rocks Community College,CHE  112,Transfer Course,Undergraduate,C,ET  LAB,Credit Awarded w/Lab Section,0.0
+37,Colorado,Fall 2021,Red Rocks Community College,CHE  112L,Transfer Course,Undergraduate,C,CHEM  1310,General Chemistry,4.0
+38,Colorado,Fall 2021,Red Rocks Community College,COM  125,Interpersonal Communication,Undergraduate,C,FREE  1XXX,Free Elective,3.0
+39,Colorado,Fall 2021,Red Rocks Community College,CSC  160,Computer Sci I C++,Undergraduate,C,CS  1301,Intro to Computing,3.0
+40,Colorado,Fall 2021,Red Rocks Community College,0,0,0,0,0,0,0
+41,Colorado,Fall 2021,Red Rocks Community College,ECO  201,Transfer Course,Undergraduate,C,ECON  2105,Prin of Macroeconomics,3.0
+42,Colorado,Fall 2021,Red Rocks Community College,ECO  202,Transfer Course,Undergraduate,C,ECON  2106,Prin of Microeconomics,3.0
+43,Colorado,Fall 2021,Red Rocks Community College,ENG  121,Transfer Course,Undergraduate,C,ENGL  1101,English Composition I,3.0
+44,Colorado,Fall 2021,Red Rocks Community College,ENG  122,Transfer Course,Undergraduate,C,ENGL  1102,English Composition II,3.0
+45,Colorado,Fall 2021,Red Rocks Community College,GEO  106,Transfer Course,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
+46,Colorado,Fall 2021,Red Rocks Community College,HIS  101,Transfer Course,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
+47,Colorado,Fall 2021,Red Rocks Community College,HIS  102,Transfer Course,Undergraduate,C,SS  1XXX,Social Science Elective,3.0
+48,Colorado,Fall 2021,Red Rocks Community College,HIS  247,Transfer Course,Undergraduate,C,SS  2XXX,Social Science Elective,3.0

@@ -9,7 +9,7 @@ DRIVER_PATH = './chromedriver'
 
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
 
-df = pd.DataFrame(columns=['school_name', 't_class',
+df = pd.DataFrame(columns=['state_entry', 'term', 'school_name', 't_class',
                   't_title', 't_level', 't_mingrade', 'gt_class', 'gt_title', 'gt_ch'])
 
 driver.get('https://oscar.gatech.edu/pls/bprod/wwsktrna.P_find_location')
@@ -17,6 +17,8 @@ driver.get('https://oscar.gatech.edu/pls/bprod/wwsktrna.P_find_location')
 # school in US
 driver.find_element_by_xpath("//input[@value='Yes']").click()
 
+state_entry = ""
+term = ""
 school_name = ""
 t_class = ""
 t_title = ""
@@ -30,6 +32,7 @@ gt_ch = ""
 for count_state in range(
         1, len(driver.find_elements_by_xpath('//option')) + 1):
     state = driver.find_element_by_xpath('//option[' + str(count_state) + ']')
+    state_entry = state.text
     state.click()
     driver.find_element_by_xpath('//input[@value="Get State"]').click()
 
@@ -46,8 +49,18 @@ for count_state in range(
             subject = driver.find_element_by_xpath(
                 '//select[@name="sel_subj"]//option[' + str(count_subject) + ']')
             subject.click()
-            driver.find_element_by_xpath('//select[@name="levl_in"]//option[@value="US"]').click()
-            driver.find_element_by_xpath('//option[@value="202108"]').click()
+            try:
+                driver.find_element_by_xpath(
+                    '//select[@name="levl_in"]//option[@value="US"]').click()
+            except:
+                f = open("error.txt", "a")
+                f.write(school_name)
+                f.close()
+                break
+            term_sem = driver.find_element_by_xpath(
+                '//option[@value="202108"]')
+            term_sem.click()
+            term = term_sem.text
             driver.find_element_by_xpath(
                 '//input[@value="Get Courses"]').click()
 
@@ -67,21 +80,20 @@ for count_state in range(
                         '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[9]').text
                     gt_ch = driver.find_element_by_xpath(
                         '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[10]').text
-                    df.loc[(len(df.index))] = [school_name,
+                    df.loc[(len(df.index))] = [state_entry, term, school_name,
                                                t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
                 except:
                     print('ERROR')
                     df.loc[(len(df.index))] = [
-                        school_name, 0, 0, 0, 0, 0, 0, 0]
+                        state_entry, term, school_name, 0, 0, 0, 0, 0, 0, 0]
                 finally:
                     df.to_csv('data.csv')
                     print(df)
-            time.sleep(1)
+            # time.sleep(1)
             driver.find_element_by_xpath(
                 '//input[@value="Search Another Subject/Level/Term"]').click()
         driver.find_element_by_xpath(
-                '//input[@value="Search Another School"]').click()
-            
+            '//input[@value="Search Another School"]').click()
 
     driver.find_element_by_xpath(
         '//input[@value="Search Another State"]').click()
