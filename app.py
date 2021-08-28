@@ -15,7 +15,7 @@ driver = webdriver.Chrome(executable_path=DRIVER_PATH)
 
 
 df = pd.DataFrame(columns=['school_name', 't_class',
-                  't_title', 'gt_class', 'gt_title'])
+                  't_title', 't_level', 't_mingrade', 'gt_class', 'gt_title', 'gt_ch'])
 
 driver.get('https://oscar.gatech.edu/pls/bprod/wwsktrna.P_find_location')
 
@@ -25,8 +25,11 @@ driver.find_element_by_xpath("//input[@value='Yes']").click()
 school_name = ""
 t_class = ""
 t_title = ""
+t_level = ""
+t_mingrade = ""
 gt_class = ""
 gt_title = ""
+gt_ch = ""
 
 # goes through all states
 for count_state in range(1,
@@ -71,16 +74,22 @@ for count_state in range(1,
                             '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[1]').text
                         t_title = driver.find_element_by_xpath(
                             '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[2]').text
+                        t_level = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[3]').text
+                        t_mingrade = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[5]').text
                         gt_class = driver.find_element_by_xpath(
                             '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[8]').text
                         gt_title = driver.find_element_by_xpath(
                             '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[9]').text
+                        gt_ch = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[10]').text
                         df.loc[(len(df.index))] = [school_name,
-                                                   t_class, t_title, gt_class, gt_title]
+                                                   t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
                     except:
                         df.loc[(len(df.index))] = [school_name, 0, 0, 0, 0]
                     finally:
-                        df.to_csv('data.csv', header=False)
+                        df.to_csv('data.csv')
                         print(df)
 
                 # start_row = driver.find_element_by_xpath(
