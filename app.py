@@ -32,7 +32,9 @@ gt_title = ""
 gt_ch = ""
 
 # goes through all states
-for count_state in range(1,
+for count_state in range(
+    1,
+    # 6,7):
                         #  2):
     len(driver.find_elements_by_xpath('//option')) + 1):
     state = driver.find_element_by_xpath('//option[' + str(count_state) + ']')
@@ -41,7 +43,9 @@ for count_state in range(1,
     # time.sleep(3)
 
     # goes through all schools
-    for count_school in range(1,
+    for count_school in range(
+        1,
+        # 17,19):
                             #   2):
         len(driver.find_elements_by_xpath('//option')) + 1):
         school = driver.find_element_by_xpath(
@@ -55,14 +59,18 @@ for count_state in range(1,
         # time.sleep(3)
 
         # goes through all subjects
-        for count_subject in range(1, len(driver.find_elements_by_xpath('//option')) + 1):
+        for count_subject in range(1, len(driver.find_elements_by_xpath("//select[@name='sel_subj']//option")) + 1):
             subject = driver.find_element_by_xpath(
-                '//option[' + str(count_subject) + ']')
+                '//select[@name="sel_subj"]//option[' + str(count_subject) + ']')
             subject.click()
-            driver.find_element_by_xpath('//option[@value="US"]').click()
-            driver.find_element_by_xpath('//option[@value="202108"]').click()
+            try:
+                driver.find_element_by_xpath('//option[@value="US"]').click()
+                # driver.find_element_by_xpath('//option[@value="202108"]').click()
+            except:
+                continue
             driver.find_element_by_xpath(
                 '//input[@value="Get Courses"]').click()
+            
             # time.sleep(3)
 
             try:
