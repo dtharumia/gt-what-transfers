@@ -65,7 +65,7 @@ for count_state in range(
             subject.click()
             try:
                 driver.find_element_by_xpath('//option[@value="US"]').click()
-                # driver.find_element_by_xpath('//option[@value="202108"]').click()
+                driver.find_element_by_xpath('//option[@value="202108"]').click()
             except:
                 continue
             driver.find_element_by_xpath(
