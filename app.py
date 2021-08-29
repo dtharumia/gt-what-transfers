@@ -54,7 +54,7 @@ for count_state in range(
                     '//select[@name="levl_in"]//option[@value="US"]').click()
             except:
                 f = open("error.txt", "a")
-                f.write(school_name)
+                f.write(school_name + '\n')
                 f.close()
                 break
             term_sem = driver.find_element_by_xpath(
