@@ -65,30 +65,38 @@ for count_state in range(
                 '//input[@value="Get Courses"]').click()
 
             for row in range(3, len(driver.find_elements_by_xpath('//table[@class="datadisplaytable"]//tr')) + 1):
-                try:
-                    t_class = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[1]').text
-                    t_title = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[2]').text
-                    t_level = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[3]').text
-                    t_mingrade = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[5]').text
-                    gt_class = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[8]').text
-                    gt_title = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[9]').text
-                    gt_ch = driver.find_element_by_xpath(
-                        '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[10]').text
-                    df.loc[(len(df.index))] = [state_entry, term, school_name,
-                                               t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
-                except:
-                    print('ERROR')
-                    df.loc[(len(df.index))] = [
-                        state_entry, term, school_name, 0, 0, 0, 0, 0, 0, 0]
-                finally:
-                    df.to_csv('data.csv')
-                    print(df)
+                if driver.find_element_by_xpath('//table[@class="datadisplaytable"]//tr[' + str(row) + ']').text != '  ----- No Equivalent Course(s) -----':
+                    try:
+                        gt_class = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[8]').text
+                        gt_title = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[9]').text
+                        gt_ch = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[10]').text
+                        t_class = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[1]').text
+                        t_title = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[2]').text
+                        t_level = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[3]').text
+                        t_mingrade = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[5]').text
+                        df.loc[(len(df.index))] = [state_entry, term, school_name,
+                                                   t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
+                    except:
+                        gt_class = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[2]').text
+                        gt_title = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[3]').text
+                        gt_ch = driver.find_element_by_xpath(
+                            '//table[@class="datadisplaytable"]//tr[' + str(row) + ']//td[4]').text
+                        df.loc[(len(df.index))] = [state_entry, term, school_name,
+                                                   t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
+                    finally:
+                        df.to_csv('data2.csv')
+                        print(df)
+                else:
+                    break
             # time.sleep(1)
             driver.find_element_by_xpath(
                 '//input[@value="Search Another Subject/Level/Term"]').click()
