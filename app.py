@@ -93,7 +93,7 @@ for count_state in range(
                         df.loc[(len(df.index))] = [state_entry, term, school_name,
                                                    t_class, t_title, t_level, t_mingrade, gt_class, gt_title, gt_ch]
                     finally:
-                        df.to_csv('data2.csv')
+                        df.to_csv('rev_data.csv')
                         print(df)
                 else:
                     break
