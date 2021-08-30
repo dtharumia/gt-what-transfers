@@ -1,1 +1,1 @@
-# Finding potential classes to take
+# GT Transfer Equivalency Table as CSV file
